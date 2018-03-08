@@ -107,27 +107,54 @@ Vue.use(ValienUpload)
     <td>Boolean</td>
     <td>true</td>
   </tr>
-
-  
-    
-    
 </table>
 
 
-| 属性      |      说明     |  类型 |  默认值 |
-|----------|:-------------:|------:|------:|
-| width |  组件宽度 | String | 100% |
-| compressQuality |    文件压缩质量（0.1-1）1表示不压缩   |   Number | 1 |
-| limitSize |文件压缩的限制，大于这个尺寸开始压缩(单位KB)|Number| 1024 |
-| uploadType|click表示使用点选，drag表示拖拽，all表示两个都使用| String | all |
-| imageLimit | 图片上传数量最大限制，默认不限制 |   Number | 0 |
-| imageMinLimit |图片最小上传数量|    Number| 0 |
-|showProgress|是否显示进度条| Boolean | true |
-| ProgressPercent|进度条进度|  Number | 0 |
-|progressColor|进度条颜色|String| #2d8cf0 |
-|multipleClass|同一个页面该组件使用多个时传入该参数，以防止图片添加混乱|String| null |
-|BtnColor|按钮颜色|String| #2d8cf0 |
-|showImageList|需要展示的图片数组，如果有图片需要进行展示，直接传入该数组([{name:X,src:XX}])|Array| [] |
-|showImageListLimit|传入的展示图片数组是否算入限制数量|Boolean| true |
-|multiple|是否支持文件多选|Boolean| true |
+#### 方法
+<table>
+  <tr>
+    <th>方法名称</th>
+    <th>说明</th>
+    <th>返回值</th>
+  </tr>
+  <tr>
+    <td>count-exceed-limit</td>
+    <td>图片超出限制函数，返回参数为more表示超过限制，为less表示小于限制</td>
+    <td>exceedTyoe</td>
+  </tr>
+  
+  <tr>
+    <td>mage-upload-error</td>
+    <td>图片加入待上传数组出错</td>
+    <td>出错code</td>
+  </tr>
+  
+  <tr>
+    <td>upload-img</td>
+    <td>上传图片，用户点击上传按钮触发，返回当前待上传图片数组</td>
+    <td>files数组</td>
+  </tr>
+  
+  
+  <tr>
+    <td>image-list-change</td>
+    <td>每成功添加一张图片到待上传数组便会触发此回调</td>
+    <td>添加到数组的file</td>
+  </tr>
+  
+  <tr>
+    <td>delete-show-img</td>
+    <td>添加的展示数组中用户点击删除其中的图片时触发的回调</td>
+    <td>item,index</td>
+  </tr>
+  
+  ```
+  this.$refs.alienupload.uploadImg()//触发上传文件
+  this.$refs.alienupload.clearUp()//清空队列文件
+  ```
+  
+    
+  
+ 
+</table>
 
