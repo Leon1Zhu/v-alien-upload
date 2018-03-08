@@ -168,6 +168,8 @@
             let showImageListLength = parseInt(this.showImageList.length,10);
             this.showImageList.splice(start-1, showImageListLength - start);
             this.limit -=  this.showImageList.length;
+          }else{
+            this.limit -= this.showImageList.length
           }
         }
       },
