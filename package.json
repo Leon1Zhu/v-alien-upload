@@ -1,11 +1,15 @@
 {
   "name": "alienupload",
   "description": "A Vue.js upload-img component",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "author": "zhuliang zl937154020@163.com",
   "license": "MIT",
   "private": false,
   "main": "dist/v-alien-upload.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZhuLiangT/v-alien-upload"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

@@ -149,20 +149,16 @@
       //清空待上传文件数组
       clearUp(){
          this.imgList = [];
+        this.size = 0;
+        if(this.showProgress){
+          this.onProgress = false;
+        }
          this.limit = this.imageLimit === 0 ? null : this.imageLimit;
         this.computerImageLength()
       },
       //删除展示的图片
       deleteShowImg(item,index){
           this.$emit('delete-show-img',item,index);
-      },
-      //清空上传图片
-      emptyFiles(){
-        this.imgList = [];
-        this.size = 0;
-        if(this.showProgress){
-          this.onProgress = false;
-        }
       },
       //计算长度剩余
       computerImageLength(){
@@ -287,7 +283,7 @@
           _this.imgList.push({
             file
           });
-          this.$emit('image-list-change',file);
+          _this.$emit('image-list-change',file);
         };
         image.src= file.src;
       },

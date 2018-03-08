@@ -2,6 +2,91 @@
 
 #### vue.js上传组件，支持自动压缩、可预、删除、多选、显示上传进度、图片展示等功能
 
+```javascript
+
+<template>
+  <div id="app">
+    <alienUpload width="50%"@delete-show-img="deleteShowImg" @image-list-change="imageListChange" @count-exceed-limit="countExceedLimit" @image-upload-error="imageUploadError" :showImageList="showImageList" @upload-img="uploadImg" :compressQuality="compressQuality" showProgress :ProgressPercent="ProgressPercent" ref="uploadImg"></alienUpload>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app',
+  data () {
+    return {
+      compressQuality:.6,
+      ProgressPercent:0,
+      showImageList:[{name:'示例1',src:'http://otdc3q7z7.bkt.clouddn.com/146197530969E4FA88FFC41C3BA13A86.png'},{name:'示例2',src:'http://otdc3q7z7.bkt.clouddn.com/146197530969E4FA88FFC41C3BA13A86.png'}]
+    }
+  },
+  mounted(){
+  },
+  methods:{
+      emptyImg(){
+          this.$refs.uploadImg.clearUp()
+      },
+      uploadImg(fileList){
+        let len = fileList.length,
+          that = this,
+          onrProgress = (1/len).toFixed(2)*100;
+        fileList.map(function(item,index){
+          /*goodsManageApi.picUplaod(item).then(response=>{
+           index === len-1 ? that.ProgressPercent1=100 :that.ProgressPercent1 += onrProgress;
+           that.formItem.productPic = response.data.message
+          })*/
+          //模仿上传的回调
+          let indexTemp = index;
+          let timer = setTimeout(function(){
+            that.ProgressPercent= indexTemp === len-1 ? 100 :that.ProgressPercent += onrProgress;
+            if(that.ProgressPercent === 100 ){
+              console.log('上传完成')
+              //清空待上传数组
+              setTimeout(() => {
+                  that.$refs.uploadImg.clearUp()
+              },2000)
+            }
+            clearTimeout(timer)
+          },400 * (indexTemp+1))
+
+        })
+      },
+      imageUploadError(code){
+          console.log('图片上传出错，出错信息'+code);
+      },
+      countExceedLimit(type){
+          if(type === 'more'){
+              console.log('图片上传数量超出限制数！')
+          }else if(type === 'less'){
+              console.log('图片上传数量少于限制数！')
+          }
+      },
+      imageListChange(file){
+          console.log(file)
+      },
+      deleteShowImg(item,index){
+          console.log(item)
+          console.log(index)
+        this.showImageList.splice(index,1);
+      }
+
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+</style>
+
+
+```
+
+
 #### 安装（npm）
 ```
 npm install alienupload --save
@@ -49,13 +134,13 @@ Vue.use(ValienUpload)
   </tr>
   <tr>
     <td>imageLimit</td>
-    <td>图片上传数量最大限制，默认不限制</td>
+    <td>图片上传数量最大限制，默认不限制,超出限制将无法上传</td>
     <td>Number</td>
     <td>0</td>
   </tr>
   <tr>
     <td>imageMinLimit</td>
-    <td>图片最小上传数量(默认不限制)</td>
+    <td>图片最小上传数量(默认不限制)，低于限制无法提交</td>
     <td>Number</td>
     <td>0</td>
   </tr>
@@ -124,7 +209,7 @@ Vue.use(ValienUpload)
   </tr>
   
   <tr>
-    <td>mage-upload-error</td>
+    <td>image-upload-error</td>
     <td>图片加入待上传数组出错</td>
     <td>出错code</td>
   </tr>
