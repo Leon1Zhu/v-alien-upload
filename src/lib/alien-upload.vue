@@ -145,6 +145,13 @@
       this.limit = this.imageLimit === 0 ? null : this.imageLimit;
       this.computerImageLength()
     },
+    watch:{
+      showImageList(v1,v2){
+          if(v1.length > 0  && this.showImageListLimit &&  this.limit) {
+            this.computerImageLength();
+          }
+      }
+    },
     methods: {
       //清空待上传文件数组
       clearUp(){
@@ -158,6 +165,9 @@
       },
       //删除展示的图片
       deleteShowImg(item,index){
+          if(this.showImageListLimit){
+            this.limit++;
+          }
           this.$emit('delete-show-img',item,index);
       },
       //计算长度剩余
@@ -168,9 +178,9 @@
             let showImageListLength = parseInt(this.showImageList.length,10);
             this.showImageList.splice(start-1, showImageListLength - start);
             this.limit -=  this.showImageList.length;
-          }else{
-            this.limit -= this.showImageList.length
           }
+          this.limit -= this.showImageList.length
+          console.log(this.limit)
         }
       },
       //上传
@@ -289,7 +299,6 @@
         };
         image.src= file.src;
       },
-
       fileDel(index) {
         this.size -= this.imgList[index].file.size;//总大小
         this.imgList.splice(index, 1);
