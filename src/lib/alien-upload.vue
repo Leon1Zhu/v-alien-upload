@@ -139,6 +139,7 @@
         imgList: [],
         size: 0,
         limit:null,
+        showImageListTempLength:0,
       }
     },
     created(){
@@ -147,9 +148,19 @@
     },
     watch:{
       showImageList(v1,v2){
-          if(v1.length > 0  && this.showImageListLimit &&  this.limit) {
-            this.computerImageLength();
+          if( this.showImageListLimit &&  this.imageLimit) {
+              if(v1){
+                  this.limit -= (v1.length - this.showImageListTempLength)
+              }else{
+                  this.limit += this.showImageListTempLength
+              }
           }
+          if(this.limit < 0){
+            this.$emit('count-exceed-limit','more');
+              this.limit = 0;
+          }
+        this.showImageListTempLength = this.showImageList.length
+          console.log(this.limit)
       }
     },
     methods: {
@@ -165,9 +176,6 @@
       },
       //删除展示的图片
       deleteShowImg(item,index){
-          if(this.showImageListLimit){
-            this.limit++;
-          }
           this.$emit('delete-show-img',item,index);
       },
       //计算长度剩余
@@ -177,10 +185,11 @@
             let start = parseInt(this.limit,10);
             let showImageListLength = parseInt(this.showImageList.length,10);
             this.showImageList.splice(start-1, showImageListLength - start);
-            this.limit -=  this.showImageList.length;
+            return;
+
           }
+          this.showImageListTempLength = this.showImageList.length;
           this.limit -= this.showImageList.length
-          console.log(this.limit)
         }
       },
       //上传
@@ -259,11 +268,11 @@
         })
       },
       fileAdd(file) {
-        if (this.limit !== null) this.limit--;
-        if (this.limit !== null && this.limit < 0) {
+        if (this.limit !== null && this.limit == 0) {
             this.$emit('count-exceed-limit','more')
             return;
         }
+        if (this.limit !== null) this.limit--;
         //判断是否为图片文件
         if (file.type.indexOf('image') == -1) {
           /*alert('请选择图片文件进行上传');*/

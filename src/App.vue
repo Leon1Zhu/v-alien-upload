@@ -9,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      imageLimit:2,
+      imageLimit:1,
       compressQuality:.6,
       ProgressPercent:0,
       showImageList:[{name:'示例1',src:'http://otdc3q7z7.bkt.clouddn.com/146197530969E4FA88FFC41C3BA13A86.png'},{name:'示例2',src:'http://otdc3q7z7.bkt.clouddn.com/146197530969E4FA88FFC41C3BA13A86.png'}]
