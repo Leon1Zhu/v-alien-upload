@@ -56,9 +56,13 @@
 
 <script>
   import imgCompress from './ImgCompress'
+  import AlienUpload from './upload'
   export default {
     name: 'alienUpload',
     props:{
+        url:{
+          type:String,
+        },
         //组件宽度
         width:{
             type:String,
@@ -94,11 +98,6 @@
           type:Boolean,
           default:false
         },
-        //进度条进度
-        ProgressPercent:{
-          type:Number,
-          default:0
-        },
         //进度条颜色
         progressColor:{
           type:String,
@@ -131,19 +130,35 @@
           type:Boolean,
           default:true
         },
+       requestOption:{
+         type:Object,
+         default:function (){
+             return{
+               formData:{},
+               headers:{},
+               responseType:'json'
+             }
+         }
+       }
     },
     data: function () {
       return {
+        fileUpload:null,
         multipleClassObj:this.multipleClass,
         onProgress:false,
         imgList: [],
         size: 0,
         limit:null,
         showImageListTempLength:0,
+        ProgressPercent:0,
       }
     },
     created(){
       this.limit = this.imageLimit === 0 ? null : this.imageLimit;
+       this.fileUpload = new AlienUpload({
+           url:this.url,
+           requestOption:this.requestOption,
+       })
       this.computerImageLength()
     },
     watch:{
@@ -160,7 +175,6 @@
               this.limit = 0;
           }
         this.showImageListTempLength = this.showImageList.length
-          console.log(this.limit)
       }
     },
     methods: {
@@ -210,11 +224,39 @@
               return;
             }
         }
-
+        let that = this;
         if(this.showProgress){
           this.onProgress = true;
         }
-          this.$emit('upload-img',this.imgList)
+        //获取待上传图片数组，引用类型，直接修改即可
+        let needUploadImgList = this.getNeddUploadImgList();
+        let progress = this.fileUpload.getProgress(this.imgList);
+        let len = this.imgList.length;
+        //最后会剩余的长度
+        let surplusLen = 100 - (progress * len);
+        needUploadImgList.forEach(function(item,index,arr){
+            if(item.file.statu !== 'success'){
+              that.fileUpload.uploadlImg(item.file).then( response => {
+                  needUploadImgList[index].file.statu = 'success';
+                  that.ProgressPercent += index+1 === needUploadImgList.length ? surplusLen+progress : progress;
+                  that.$emit('upload-img-success',item.file,response)
+              }).catch(response => {
+                  needUploadImgList[index].file.statu = 'error';
+                  that.$emit('upload-img-error',item.file,response)
+              })
+            }
+
+        })
+
+      },
+      //生成需要上传的数组
+      getNeddUploadImgList(){
+        let imgListTemp = this.imgList.filter(function(item){
+            if(item.file.statu !== 'success'){
+                return item;
+            }
+        })
+        return imgListTemp;
       },
       //设置
       limitClick(state) {
@@ -275,7 +317,6 @@
         if (this.limit !== null) this.limit--;
         //判断是否为图片文件
         if (file.type.indexOf('image') == -1) {
-          /*alert('请选择图片文件进行上传');*/
           this.$emit('image-upload-error','请选择图片文件进行上传')
         } else {
           let reader = new FileReader();
@@ -287,7 +328,6 @@
           reader.onload = function () {
               file.src = this.result;
               (_this.compressQuality <1 && _this.compressQuality >0.1 && (file.size/1024 > _this.limitSize)) ? imgCompress(file,_this.compressQuality,_this.limitSize,function(file){_this.drawImage(file)}) :  _this.drawImage(file);
-
           }
         }
       },
@@ -304,15 +344,28 @@
           _this.imgList.push({
             file
           });
+          if(_this.ProgressPercent > 0){
+            _this.changeProgressPercent();
+          }
           _this.$emit('image-list-change',file);
         };
         image.src= file.src;
+      },
+      /*
+      * 有新文件上传的时候修改进度条*/
+      changeProgressPercent(){
+        let needUploadImgList = this.getNeddUploadImgList();
+        let progress = this.fileUpload.getProgress(this.imgList);
+        let len = this.imgList.length;
+        let surplusLen = 100 - (progress * len);
+        this.ProgressPercent = 100 - surplusLen - progress * needUploadImgList.length;
       },
       fileDel(index) {
         this.size -= this.imgList[index].file.size;//总大小
         this.imgList.splice(index, 1);
         if (this.limit !== null) this.limit ++;
       },
+
       bytesToSize(bytes) {
         if (bytes === 0) return '0 B';
         let k = 1000, // or 1024
