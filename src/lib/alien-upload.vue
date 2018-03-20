@@ -151,6 +151,7 @@
         limit:null,
         showImageListTempLength:0,
         ProgressPercent:0,
+        isuploading:false,
       }
     },
     created(){
@@ -208,7 +209,9 @@
       },
       //上传
       uploadImg(){
-        if( this.imgList.length === 0){
+        //获取待上传图片数组，引用类型，直接修改即可
+        let needUploadImgList = this.getNeddUploadImgList();
+        if(this.isuploading === true || this.imgList.length === 0 || needUploadImgList.length === 0){
             return;
         }
         if(this.imageMinLimit > 0){
@@ -228,26 +231,37 @@
         if(this.showProgress){
           this.onProgress = true;
         }
-        //获取待上传图片数组，引用类型，直接修改即可
-        let needUploadImgList = this.getNeddUploadImgList();
-        let progress = this.fileUpload.getProgress(this.imgList);
-        let len = this.imgList.length;
+
+        let progress = this.fileUpload.getProgress(this.imgList),
+        len = this.imgList.length,
         //最后会剩余的长度
-        let surplusLen = 100 - (progress * len);
+        surplusLen = 100 - (progress * len),
+        //图片上传个数，如果等于待上传数组长度，则可以继续点击上传按钮
+        progresItem = 0;
+        this.isuploading = true;
         needUploadImgList.forEach(function(item,index,arr){
             if(item.file.statu !== 'success'){
               that.fileUpload.uploadlImg(item.file).then( response => {
+                  progresItem++;
                   needUploadImgList[index].file.statu = 'success';
                   that.ProgressPercent += index+1 === needUploadImgList.length ? surplusLen+progress : progress;
-                  that.$emit('upload-img-success',item.file,response)
+                  that.$emit('upload-img-success',item.file,response);
+                  that.changeUploadStatu(needUploadImgList.length,progresItem);
               }).catch(response => {
+                  progresItem++;
                   needUploadImgList[index].file.statu = 'error';
-                  that.$emit('upload-img-error',item.file,response)
+                  that.$emit('upload-img-error',item.file,response);
+                that.changeUploadStatu(needUploadImgList.length,progresItem);
               })
             }
 
         })
 
+      },
+      changeUploadStatu(listLen,uploadedLen){
+          if(listLen === uploadedLen){
+              this.isuploading = false;
+          }
       },
       //生成需要上传的数组
       getNeddUploadImgList(){
