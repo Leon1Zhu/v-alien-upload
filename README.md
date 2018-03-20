@@ -109,6 +109,11 @@ Vue.use(ValienUpload)
     <th>默认值</th>
   </tr>
   <tr>
+      <td>url</td>
+      <td>文件上传地址</td>
+      <td>String</td>
+    </tr>
+  <tr>
     <td>width</td>
     <td>组件宽度</td>
     <td>String</td>
@@ -157,12 +162,6 @@ Vue.use(ValienUpload)
     <td>#2d8cf0</td>
   </tr>
   <tr>
-    <td>multipleClass</td>
-    <td>同一个页面该组件使用多个时传入该参数,给组件加上该类名，以防止图片添加混乱</td>
-    <td>String</td>
-    <td>null</td>
-  </tr>
-  <tr>
     <td>BtnColor</td>
     <td>按钮颜色</td>
     <td>String</td>
@@ -186,6 +185,19 @@ Vue.use(ValienUpload)
     <td>Boolean</td>
     <td>true</td>
   </tr>
+   <tr>
+      <td>requestOption</td>
+      <td>请求方法配置</td>
+      <td>Object</td>
+      <td>
+      {
+         formData:{},
+         headers:{},
+         responseType:'json'
+       }
+      </td>
+    </tr>
+  
 </table>
 
 
@@ -220,6 +232,22 @@ Vue.use(ValienUpload)
     <td>每成功添加一张图片到待上传数组便会触发此回调</td>
     <td>添加到数组的file</td>
   </tr>
+  
+   <tr>
+      <td>delete-img</td>
+      <td>删除图片回调</td>
+      <td>删除的图片file</td>
+   </tr>
+   <tr>
+      <td>upload-img-success</td>
+      <td>单张图片上传成功</td>
+      <td>请求返回的response</td>
+   </tr>
+   <tr>
+      <td>upload-img-error</td>
+      <td>单张图片上传失败</td>
+      <td>请求返回的response</td>
+   </tr>
   
   <tr>
     <td>delete-show-img</td>

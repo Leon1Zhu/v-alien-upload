@@ -371,11 +371,13 @@
       },
       fileDel(index) {
         this.size -= this.imgList[index].file.size;//总大小
-        this.imgList.splice(index, 1);
+        let deleteImg = this.imgList.splice(index, 1);
         if (this.limit !== null) this.limit ++;
         if(this.imgList.length <=0){
             this.onProgress = false;
         }
+        console.log(deleteImg)
+        this.$emit('delete-img',deleteImg);
       },
 
       bytesToSize(bytes) {
