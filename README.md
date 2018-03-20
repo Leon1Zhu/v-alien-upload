@@ -79,11 +79,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 </style>
 
@@ -153,12 +149,6 @@ Vue.use(ValienUpload)
     <td>是否显示进度条</td>
     <td>Boolean</td>
     <td>true</td>
-  </tr>
-  <tr>
-    <td>ProgressPercent</td>
-    <td>进度条进度</td>
-    <td>Number</td>
-    <td>0</td>
   </tr>
   <tr>
     <td>progressColor</td>

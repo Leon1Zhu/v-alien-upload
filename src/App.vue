@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <alienUpload :url="url"  width="50%"@delete-show-img="deleteShowImg" @image-list-change="imageListChange" @count-exceed-limit="countExceedLimit" @image-upload-error="imageUploadError" :showImageList="showImageList" @upload-img-success="uploadImg" :compressQuality="compressQuality" showProgress :ProgressPercent="ProgressPercent" ref="uploadImg"></alienUpload>
+    <alienUpload :url="url"  width="50%"@delete-show-img="deleteShowImg" @image-list-change="imageListChange" @count-exceed-limit="countExceedLimit" @image-upload-error="imageUploadError" :showImageList="showImageList" @upload-img-success="uploadImg" :compressQuality="compressQuality" showProgress :ProgressPercent="ProgressPercent" ref="uploadImg"></alienUpload>
   </div>
 </template>
 

@@ -13,7 +13,7 @@
         <span>选中{{imgList.length}}张文件，共{{bytesToSize(this.size)}}</span>
         <div class="upload-img-btn" @click="uploadImg" :style="{ backgroundColor:BtnColor,borderColor: BtnColor}">上传文件</div>
       </div>
-      <input  @change="fileChange($event)" type="file" class="upload_file" :class="[multipleClassObj]" :multiple="multiple" style="display: none"/>
+      <input  @change="fileChange($event)" type="file" :class="'upload_file'+timeHash" :multiple="multiple" style="display: none"/>
 
 
       <div class="upload_warp_img" v-show="!(imgList.length === 0 && showImageList.length === 0)">
@@ -108,11 +108,6 @@
           type:String,
           default:'#2d8cf0'
         },
-        //同一个页面多次使用时传入参数
-         multipleClass:{
-           type:String,
-           default:null,
-         },
         //需要展示的图片数组，
         showImageList:{
            type:Array,
@@ -144,7 +139,6 @@
     data: function () {
       return {
         fileUpload:null,
-        multipleClassObj:this.multipleClass,
         onProgress:false,
         imgList: [],
         size: 0,
@@ -152,6 +146,7 @@
         showImageListTempLength:0,
         ProgressPercent:0,
         isuploading:false,
+        timeHash:Date.now(),
       }
     },
     created(){
@@ -281,7 +276,7 @@
           this.limit = null;
       },
       fileClick() {
-         this.multipleClass ? document.querySelector('.upload_file.'+this.multipleClass+'').click() : document.querySelector('.upload_file').click()
+          document.querySelector('.upload_file'+this.timeHash+'').click();
       },
       fileChange(el) {
         if (!el.target.files[0].size) return;
