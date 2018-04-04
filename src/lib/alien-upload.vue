@@ -376,7 +376,6 @@
         if(this.imgList.length <=0){
             this.onProgress = false;
         }
-        console.log(deleteImg)
         this.$emit('delete-img',deleteImg);
       },
 
