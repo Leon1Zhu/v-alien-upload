@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import ValienUpload from './lib/index'
 export default {
   name: 'app',
   data () {
@@ -18,6 +19,10 @@ export default {
     }
   },
   mounted(){
+      console.log(ValienUpload.upload)
+  },
+  components:{
+      'alienUpload': ValienUpload.upload,
   },
   methods:{
       delImg(img){
