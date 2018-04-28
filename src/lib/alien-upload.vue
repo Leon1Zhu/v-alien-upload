@@ -276,7 +276,9 @@
           this.limit = null;
       },
       fileClick() {
-          document.querySelector('.upload_file'+this.timeHash+'').click();
+          if(document){
+            document.querySelector('.upload_file'+this.timeHash+'').click();
+          }
       },
       fileChange(el) {
         if (!el.target.files[0].size) return;
