@@ -48,5 +48,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "no-restricted-syntax": ["error", "WithStatement"],
     'no-console': ['warn',{ "allow": ["log",'error'] }],
+    "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
   }
 }

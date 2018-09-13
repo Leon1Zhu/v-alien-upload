@@ -1,0 +1,29 @@
+/**
+ * @Author: liang.zhu
+ * @Date: 2018/9/13 下午6:20
+ */
+@import './globalscss';
+
+.ivu-menu-light {
+  background: transparent;
+}
+.ivu-menu-horizontal {
+  height: 44px;
+  line-height: 34px;
+  .ivu-menu-item {
+    padding: 0px 7px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+  }
+}
+
+.ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active {
+  color: $systemColor;
+  border-bottom: 3px solid $systemColor;
+}
+
+.ivu-badge-dot {
+  background: $systemColor;
+  top: 0px;
+  right: -5px;
+}

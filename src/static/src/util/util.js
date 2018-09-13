@@ -1,13 +1,5 @@
 
-const pub = {
-  /**
-   * [isHTML5 支持html5判断]
-   * vue.js肯定是支持html5的
-   * @return {Boolean} [description]
-   */
-  isHTML5() {
-    return !!(window.FormData && File);
-  },
+const Util = {
   /**
    * [extend 多个对象复制]
    * 原来的vue的extend函数只支持2个参数，太不仁道了
@@ -40,40 +32,6 @@ const pub = {
       }
     }
     return true;
-  },
-  /**
-   * [_isFile check文件]
-   * ie9 未定义File
-   * @param  {[type]}  file [description]
-   * @return {Boolean}      [description]
-   */
-  isFile(file) {
-    return file !== null &&
-        !!((window.File && file instanceof window.File) ||
-        (file.size >= 0 && file.type));
-  },
-
-  /**
-   * Add event listener shorthand.
-   *
-   * @param {Element} el
-   * @param {String} event
-   * @param {Function} cb
-   * @param {Boolean} [useCapture]
-   */
-  on(el, event, cb, useCapture) {
-    el.addEventListener(event, cb, useCapture);
-  },
-
-  /**
-   * Remove event listener shorthand.
-   *
-   * @param {Element} el
-   * @param {String} event
-   * @param {Function} cb
-   */
-  off(el, event, cb) {
-    el.removeEventListener(event, cb);
   },
 
   /**
@@ -114,6 +72,25 @@ const pub = {
     }
     return ret;
   },
-
+  /**
+   * 存入sessionStorage中
+   * key 键
+   * value 值
+   */
+  setSessionStorageData(key , value) {
+    sessionStorage.setItem(key, value)
+  },
+  /**
+   * 从sessionStorage里面取数
+   * value 要取得值名称
+   * isParse 是否需要parse转换(针对json数据)
+   */
+  getDataFormSessionStorage(value, isParse) {
+    let data = sessionStorage.getItem(value);
+    if (data && isParse) {
+      data = JSON.parse(data);
+    }
+    return data ? data : null;
+  }
 }
 export default pub;

@@ -1,0 +1,35 @@
+@import '../../styles/globalscss';
+#manage-main-header {
+  width: 100%;
+  height: 56px;
+  position: relative;
+  background: #FFFFFF;
+  box-shadow: 0 5px 6px 0 rgba(0,0,0,0.06);
+  .header-content {
+    display: flex;
+    padding: 11.5px $leftSpace;
+    .logo-name-content {
+      display: flex;
+      .manage-logo {
+        width: 33px;
+        height: 33px;
+        border-radius: 100%;
+        background: $systemColor;
+        display: block;
+      }
+      .manage-name {
+        font-size: 18px;
+        font-family: PingFangSC-Medium;
+        display: block;
+        line-height: 34px;
+        margin-left: 15px;
+      }
+    }
+    .header-menu {
+      margin-left: 9%;
+      .ivu-menu-item:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+  }
+}
