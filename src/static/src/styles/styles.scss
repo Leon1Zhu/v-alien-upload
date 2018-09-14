@@ -12,6 +12,14 @@ html, body, #app {
   height: 100%;
 }
 
+* {
+  font-family: $font-family;
+}
+
+a:hover {
+  color: $systemColor!important;
+}
+
 
 
 @media screen and (max-width: 1367px) {

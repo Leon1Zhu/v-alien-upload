@@ -7,7 +7,7 @@ import App from './App';
 import router from './router';
 import './styles/reset.css';
 import './styles/styles.scss';
-import './styles/resetIview.scss'
+import './styles/resetIview.scss';
 
 Vue.use(iView);
 Vue.config.productionTip = false;

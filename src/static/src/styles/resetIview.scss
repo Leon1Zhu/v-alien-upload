@@ -12,9 +12,13 @@
   line-height: 34px;
   .ivu-menu-item {
     padding: 0px 7px;
-    font-size: 16px;
-    font-family: MicrosoftYaHei;
+    font-size: $font-size16;
+    font-family: $font-family;
   }
+}
+
+.ivu-breadcrumb {
+  color:rgba(64,68,80,1);
 }
 
 .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active {
@@ -26,4 +30,8 @@
   background: $systemColor;
   top: 0px;
   right: -5px;
+}
+
+.ivu-breadcrumb-item-separator {
+  color: #404450;
 }

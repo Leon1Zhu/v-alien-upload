@@ -4,21 +4,21 @@
   height: 56px;
   position: relative;
   background: #FFFFFF;
-  box-shadow: 0 5px 6px 0 rgba(0,0,0,0.06);
+  box-shadow:0px 2px 4px 0px rgba(226,226,226,0.5);
   .header-content {
     display: flex;
     padding: 11.5px $leftSpace;
     .logo-name-content {
       display: flex;
       .manage-logo {
-        width: 33px;
-        height: 33px;
+        width: 34px;
+        height: 34px;
         border-radius: 100%;
         background: $systemColor;
         display: block;
       }
       .manage-name {
-        font-size: 18px;
+        font-size: 20px;
         font-family: PingFangSC-Medium;
         display: block;
         line-height: 34px;
@@ -29,6 +29,29 @@
       margin-left: 9%;
       .ivu-menu-item:not(:first-child) {
         margin-left: 30px;
+      }
+    }
+    .right-content {
+      line-height: 40px;
+      position: absolute;
+      right: 2%;
+      display: flex;
+      .header-message {
+        margin-right: 45px;
+      }
+      .header-user-info {
+        display: flex;
+        .user-icon {
+          width:40px;
+          height:40px;
+          background:rgba(190,220,245,1);
+          display: inline-block;
+          border-radius: 50%;
+          margin-right: $smallMargin;
+        }
+        .ivu-dropdown {
+          color: #66696C;
+        }
       }
     }
   }
