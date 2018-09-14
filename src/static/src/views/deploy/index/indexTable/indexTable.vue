@@ -1,3 +1,7 @@
+<!--
+ @Author: liang.zhu
+ @Date: 2018/9/14 下午7:05
+-->
 <template>
   <section id="manage-deploy-index-table">
     <Table  class="plantform-table" stripe :columns="columns1" :data="data1"></Table>
