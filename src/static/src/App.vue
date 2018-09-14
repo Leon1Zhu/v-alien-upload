@@ -2,14 +2,16 @@
   <div id="manage-main">
     <manage-header></manage-header>
     <bread-crumb></bread-crumb>
-    <router-view/>
+    <section class="view-content">
+      <router-view/>
+    </section>
   </div>
 </template>
 
 <script>
-import './styles/index.scss';
-import breadCrumb from './components/breadCrumb/breadCrumb';
-import manageHeader from './components/header/header';
+import './styles/index.less';
+import breadCrumb from './views/mainPage/breadCrumb/breadCrumb';
+import manageHeader from './views/mainPage/header/header';
 
 export default {
   name: 'App',

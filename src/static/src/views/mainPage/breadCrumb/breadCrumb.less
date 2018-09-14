@@ -1,4 +1,4 @@
-@import '../../styles/globalscss';
+@import '../../../styles/globalscss.less';
 #manage-mian-bread-crumb {
   width: 100%;
   position: relative;
@@ -6,18 +6,13 @@
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 0 $leftSpace;
+    padding: 0 @leftSpace;
     .ivu-icon-md-star-outline:before {
       font-size: 20px;
     }
     .ivu-breadcrumb {
-      margin-left: $smallMargin;
+      margin-left: 3px;
     }
-  }
-  .bread-crumb-br {
-    width:1366px;
-    height:2px;
-    background:rgba(235,235,235,1);
   }
   .ivu-divider-horizontal {
     margin: 0;

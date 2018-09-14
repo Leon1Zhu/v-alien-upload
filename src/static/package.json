@@ -13,7 +13,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "iview": "^3.1.0",
-    "scss": "^0.2.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -44,8 +43,9 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.1.0",
     "node-notifier": "^5.1.2",
-    "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
@@ -58,7 +58,7 @@
     "shelljs": "^0.7.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
-    "vue-loader": "^13.3.0",
+    "vue-loader": "^13.2.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",

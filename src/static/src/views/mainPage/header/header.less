@@ -1,4 +1,4 @@
-@import '../../styles/globalscss';
+@import '../../../styles/globalscss.less';
 #manage-main-header {
   width: 100%;
   height: 56px;
@@ -7,14 +7,14 @@
   box-shadow:0px 2px 4px 0px rgba(226,226,226,0.5);
   .header-content {
     display: flex;
-    padding: 11.5px $leftSpace;
+    padding: 11.5px @leftSpace;
     .logo-name-content {
       display: flex;
       .manage-logo {
         width: 34px;
         height: 34px;
         border-radius: 100%;
-        background: $systemColor;
+        background: @systemColor;
         display: block;
       }
       .manage-name {
@@ -47,7 +47,7 @@
           background:rgba(190,220,245,1);
           display: inline-block;
           border-radius: 50%;
-          margin-right: $smallMargin;
+          margin-right: @smallMargin;
         }
         .ivu-dropdown {
           color: #66696C;

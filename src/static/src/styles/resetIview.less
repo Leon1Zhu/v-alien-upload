@@ -1,0 +1,83 @@
+/**
+ * @Author: liang.zhu
+ * @Date: 2018/9/13 下午6:20
+ */
+@import 'globalscss.less';
+
+@import '~iview/src/styles/index.less';
+@primary-color: @systemColor;
+@border-color: @borderColor;
+
+.ivu-menu-light {
+  background: transparent;
+}
+.ivu-menu-horizontal {
+  height: 44px;
+  line-height: 34px;
+  .ivu-menu-item {
+    padding: 0px 7px;
+    font-size: @font-size16;
+    font-family: @font-family;
+  }
+}
+
+.ivu-breadcrumb {
+  color:rgba(64,68,80,1);
+}
+
+.ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active {
+  border-bottom: 3px solid @systemColor;
+}
+.ivu-menu-light.ivu-menu-horizontal .ivu-menu-item:hover {
+  border-bottom: 3px solid @systemColor;
+}
+
+.ivu-badge-dot {
+  top: 0px;
+  right: -5px;
+}
+
+.ivu-breadcrumb-item-separator {
+  color: #404450;
+}
+
+.ivu-divider-horizontal {
+  margin: 0;
+  width:100%;
+  height:@borderSize;
+  background:@borderColor;
+}
+
+.ivu-btn-primary {
+  padding: 3px 15px 3px;
+  font-size: @font-size14;
+}
+.ivu-btn-primary:hover {
+}
+
+.ivu-table-wrapper {
+  border: @borderSize solid @borderColor;
+}
+.ivu-table:after, .ivu-table:before {
+  width: 0px;
+}
+.ivu-table td, .ivu-table th {
+  border: none;
+}
+
+.ivu-table td, .ivu-table th {
+  background:rgba(247,250,254,0.79);
+  height: 32px;
+}
+.ivu-table-header {
+   td,  th {
+     background: #FFFFFF;
+    height: 40px;
+    font-size: 14px;
+    color: rgba(64,68,80,1);
+     border-bottom:1px solid @borderColor;
+  }
+}
+.ivu-table-stripe .ivu-table-body tr:nth-child(2n) td {
+  background: #FFFFFF;
+}

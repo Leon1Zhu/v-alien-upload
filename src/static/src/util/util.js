@@ -67,7 +67,8 @@ const Util = {
     const startTemp = start || 0;
     let i = list.length - startTemp;
     const ret = new Array(i);
-    while (i--) {
+    while (i) {
+      i -= 1;
       ret[i] = list[i + startTemp];
     }
     return ret;
@@ -77,20 +78,21 @@ const Util = {
    * key 键
    * value 值
    */
-  setSessionStorageData(key , value) {
-    sessionStorage.setItem(key, value)
+  setSessionStorageData(key, value) {
+    sessionStorage.setItem(key, value);
   },
   /**
    * 从sessionStorage里面取数
    * value 要取得值名称
    * isParse 是否需要parse转换(针对json数据)
+   * defalutValue 指定默认值
    */
-  getDataFormSessionStorage(value, isParse) {
+  getDataFormSessionStorage(value, isParse, defaultValue) {
     let data = sessionStorage.getItem(value);
     if (data && isParse) {
       data = JSON.parse(data);
     }
-    return data ? data : null;
-  }
-}
-export default pub;
+    return data || (defaultValue || null);
+  },
+};
+export default Util;

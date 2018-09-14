@@ -7,11 +7,11 @@
       </div>
       <div class="header-menu">
         <Menu mode="horizontal"  active-name="1">
-          <MenuItem name="1">
-            内容管理
+          <MenuItem name="1" @click.native="pushRouter('/deployIndex')">
+            平台部署
           </MenuItem>
           <MenuItem name="2">
-            用户管理
+            平台管理
           </MenuItem>
         </Menu>
       </div>
@@ -26,7 +26,7 @@
               <Icon type="ios-arrow-down"></Icon>
             <DropdownMenu slot="list" class="user-operator">
               <DropdownItem><i  class="iconfont icon-xiugaimima" ></i>修改密码</DropdownItem>
-              <DropdownItem divided> <i  class="iconfont icon-caozuo_zhuxiao_tuichudenglu" ></i>退出系统</DropdownItem>
+              <DropdownItem divided> <i  ></i>退出系统</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import './header.scss';
+import './header.less';
 
 export default {
   name: 'manage-header',

@@ -1,0 +1,43 @@
+/**
+ * @Author: liang.zhu
+ * @Date: 2018/9/14 上午10:36
+ */
+@import '../../../styles/globalscss.less';
+
+#manage-deploy-index {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .deploy-index-header{
+    padding: 0% 1%;
+  }
+  .deploy-index-header {
+    background: #ffffff;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: @borderSize solid @borderColor;
+    border-bottom: 0;
+    .deploy-index-header-name {
+      font-size: @font-size14;
+    }
+    .deply-index-new-task-btn {
+      position: absolute;
+      right: 1%;
+    }
+    .ivu-auto-complete {
+      .ivu-icon-ios-search {
+        line-height: 30px;
+      }
+      .ivu-input.ivu-input-small {
+        height: 30px;
+      }
+    }
+    .deploy-index-search-input, .deply-index-search-btn {
+      margin-left:15px;
+    }
+  }
+}

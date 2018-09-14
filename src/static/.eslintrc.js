@@ -49,5 +49,9 @@ module.exports = {
     "no-restricted-syntax": ["error", "WithStatement"],
     'no-console': ['warn',{ "allow": ["log",'error'] }],
     "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
+    "max-len": [2, {"code": 140, "tabWidth": 4, "ignoreUrls": true}],
+    "no-shadow": 0,
+    "no-plusplus": 0,
+    'vue/valid-v-for': 0,
   }
 }
