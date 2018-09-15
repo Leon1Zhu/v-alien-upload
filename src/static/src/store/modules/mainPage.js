@@ -26,16 +26,19 @@ const getters = {
 const mutations = {
   // 点击新增路由
   addBreadCrumb(state, obj) {
-    this.state = state || [];
-    const level = obj.level;
+    const level = obj.meta.level;
+    const breadCrumb = state.breadCrumb;
     // 删除高级别的目录
-    for (let i = 0, len = this.state.length; i < len; i++) {
-      if (state[i].level >= level) {
-        state.splice(i, 1);
-        i -= 1;
+    for (let i = 0, len = breadCrumb.length; i < len; i++) {
+      console.log(breadCrumb[i])
+      if (breadCrumb[i].meta.level >= level) {
+        breadCrumb.splice(i, 1);
+        i--;
+        len--;
       }
     }
-    state.push(obj);
+    breadCrumb.push(obj);
+    Util.setSessionStorageData(sessionKey.breadCrumb, JSON.stringify(state.breadCrumb));
   },
 };
 

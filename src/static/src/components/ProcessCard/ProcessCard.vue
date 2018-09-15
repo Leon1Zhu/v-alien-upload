@@ -4,12 +4,26 @@
 -->
 <template>
   <div class="process-card">
+    <div class="process-card-title">{{ opt.title }}</div>
+    <div class="process-card-body"></div>
+    <span class="process-card-index">{{ opt.index }}</span>
   </div>
 </template>
 
 <script>
+import './ProcessCard.less';
+
 export default {
-  name: 'ProcessCard',
+  name: 'processcard',
+  props: {
+    opt: {
+      type: Object,
+      required: true,
+      default() {
+        return {};
+      },
+    },
+  },
   data() {
     return {};
   },

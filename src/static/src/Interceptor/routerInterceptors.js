@@ -8,8 +8,8 @@ import store from '../store/index';
 router.beforeEach((to, from, next) => {
   console.log(to);
   const level = to.meta.level;
-  if (level) {
-    store.dispatch('addBreadCrumb', { level, url: to.path, name: to.name, query: to.query });
+  if (!isNaN(level)) {
+    store.dispatch('setAddBreadCrumb', { meta: to.meta, url: to.path, name: to.name, query: to.query });
   }
   next();
 });

@@ -53,5 +53,6 @@ module.exports = {
     "no-shadow": 0,
     "no-plusplus": 0,
     'vue/valid-v-for': 0,
+    "vue/require-v-for-key": 0,
   }
 }
