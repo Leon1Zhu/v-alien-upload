@@ -2,19 +2,29 @@
 #manage-mian-bread-crumb {
   width: 100%;
   position: relative;
+  line-height:50px;
   .bread-crumb-list {
+    display: inline-block;
     height: 50px;
-    display: flex;
     align-items: center;
     padding: 0 @leftSpace;
-    .ivu-icon-md-star-outline:before {
-      font-size: 20px;
+    .ivu-icon-md-star-outline {
+      display: inline-block;
+      &:before {
+        font-size: 20px;
+        line-height: 12px;
+      }
     }
     .ivu-breadcrumb {
-      margin-left: 3px;
+      display: inline-block;
     }
   }
   .ivu-divider-horizontal {
     margin: 0;
+  }
+  .bread-crumb-button-list {
+    display: inline-block;
+    position: absolute;
+    right: @leftSpace;
   }
 }

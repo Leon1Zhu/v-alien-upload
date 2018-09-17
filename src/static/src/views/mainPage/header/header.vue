@@ -11,10 +11,10 @@
       </div>
       <div class="header-menu">
         <Menu mode="horizontal"  active-name="1">
-          <MenuItem name="1" @click.native="pushRouter('/deployIndex')">
+          <MenuItem name="1" to="/deployIndex">
             平台部署
           </MenuItem>
-          <MenuItem name="2">
+          <MenuItem name="2" to="/manageIndex">
             平台管理
           </MenuItem>
         </Menu>

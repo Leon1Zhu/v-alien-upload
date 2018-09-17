@@ -5,7 +5,7 @@
 <template>
   <section id="manage-deploy-index">
     <div class="deploy-index-header">
-      <span class="deploy-index-header-name">平台管理</span>
+      <span class="deploy-index-header-name">任务列表</span>
       <AutoComplete
         v-model="searchValue"
         icon="ios-search"
@@ -19,7 +19,6 @@
           </div>
         </div>
       </AutoComplete>
-      <Button size="small" type="primary" class="deply-index-search-btn">搜索</Button>
       <Button size="small" type="primary" icon="ios-add" class="deply-index-new-task-btn">新建任务</Button>
     </div>
     <index-table></index-table>

@@ -1,0 +1,25 @@
+#manage-index {
+  width: 100%;
+  position: relative;
+  height: 100%;
+ .manage-index-card-content {
+   width: 100%;
+   display: flex;
+   background: #FFFFFF;
+   .node-li {
+     flex: 1;
+     position: relative;
+   }
+ }
+  .node-card-list .node-li:not(:first-child):after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 60%;
+    top: 20%;
+    left: 3%;
+    bottom: 0;
+    right: 0;
+    background: #D3D3D3;
+  }
+}

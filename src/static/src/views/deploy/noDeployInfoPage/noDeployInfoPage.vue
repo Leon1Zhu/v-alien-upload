@@ -14,7 +14,7 @@
 
 <script>
 import './noDeployInfoPage.less';
-import ProcessCard from '../../../components/ProcessCard/ProcessCard';
+import ProcessCard from '../../../components/cards/ProcessCard/ProcessCard';
 
 export default {
   name: 'noDeployInfoPage',

@@ -1,0 +1,37 @@
+@import '../../../styles/globalscss';
+
+.node-card {
+  position: relative;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  .node-card-left-content {
+    flex: 1;
+    text-align: center;
+    .node-card-count {
+      font-size: 64px;
+      color: @systemColor;
+      font-family:Arial-Black;
+      font-weight:900;
+    }
+    .node-card-unit {
+      font-size: 20px;
+      color: #898989;
+    }
+  }
+  .node-card-right-content {
+    flex: 2;
+    .node-card-name {
+      font-size: @font-size16;
+      color: #404450;
+    }
+    .node-card-detail {
+      color: #858585;
+      font-size: @font-size14;
+    }
+    .ivu-divider-horizontal {
+      margin: 10px 0;
+    }
+  }
+}
+

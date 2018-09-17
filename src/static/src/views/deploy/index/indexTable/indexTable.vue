@@ -5,7 +5,7 @@
 <template>
   <section id="manage-deploy-index-table">
     <Table  class="plantform-table" stripe :columns="columns1" :data="data1"></Table>
-    <Page :total="100" show-elevator size="small" />
+    <Page :total="100"  size="small" />
   </section>
 </template>
 

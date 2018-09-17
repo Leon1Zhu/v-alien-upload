@@ -10,6 +10,24 @@
         <BreadcrumbItem v-for="item in breadCrumb" @click.native="pushRouter(item.url, item.query)">{{ item.name }}</BreadcrumbItem>
       </Breadcrumb>
     </div>
+    <div class="bread-crumb-button-list" v-if="$route.path === '/manageIndex'">
+      <Button type="primary" ghost size="large">
+        <Icon type="md-add" />
+        组件管理
+      </Button>
+      <Button type="primary" ghost size="small">
+        <Icon type="md-add" />
+        用户管理
+      </Button>
+      <Button type="primary" ghost size="small">
+        <Icon type="md-add" />
+        资源控制
+      </Button>
+      <Button type="primary" ghost size="small">
+        <Icon type="md-add" />
+        资源控制
+      </Button>
+    </div>
     <Divider class="bread-crumb-br" />
   </section>
 </template>

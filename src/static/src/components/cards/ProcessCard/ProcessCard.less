@@ -1,8 +1,7 @@
 .process-card {
   position: relative;
   border: 1px solid rgba(151,151,151,0.41);
-  width:15%;
-  min-width: 140px;
+  width: 140px;
   text-align: center;
   font-size: 14px;
   .process-card-title {
@@ -13,8 +12,7 @@
   }
   .process-card-body {
     background: #FFFFFF;
-    min-height: 122px;
-
+    height: 122px;
   }
   .process-card-index {
     width: 35px;
@@ -29,5 +27,33 @@
     bottom: -17.5px;
     color: #FFFFFF;
     font-size: 16px;
+  }
+
+  @media screen and (min-width: 1080px) and (max-width: 1367px) {
+     width: 160px;
+    .process-card-body {
+      height: 152px;
+    }
+  }
+
+  @media screen and (min-width: 1367px) and (max-width: 1921px) {
+     width: 170px;
+    .process-card-body {
+      height: 182px;
+    }
+  }
+
+  @media screen and (min-width: 1921px) and (max-width: 2561px) {
+     width: 180px;
+    .process-card-body {
+      height: 212px;
+    }
+  }
+
+  @media screen and (min-width: 2561px) {
+     width: 190px;
+    .process-card-body {
+      height: 242px;
+    }
   }
 }
