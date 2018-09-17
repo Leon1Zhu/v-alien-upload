@@ -48,27 +48,71 @@ export default {
         moduleCard: [
           {
             name: 'SkyBase',
-            detailCount: 9,
-            errorCount: 0,
-            notInstall: 0,
+            statusInfo: [
+              {
+                count: 9,
+                name: '正常',
+              },
+              {
+                count: 0,
+                name: '异常',
+              },
+              {
+                count: 0,
+                name: '未安装',
+              },
+            ],
           },
           {
             name: 'SkyCloudOS',
-            detailCount: 6,
-            errorCount: 4,
-            notInstall: 0,
+            statusInfo: [
+              {
+                count: 6,
+                name: '正常',
+              },
+              {
+                count: 4,
+                name: '异常',
+              },
+              {
+                count: 0,
+                name: '未安装',
+              },
+            ],
           },
           {
             name: 'SkyFS',
-            detailCount: 9,
-            errorCount: 0,
-            notInstall: 1,
+            statusInfo: [
+              {
+                count: 8,
+                name: '正常',
+              },
+              {
+                count: 0,
+                name: '异常',
+              },
+              {
+                count: 1,
+                name: '未安装',
+              },
+            ],
           },
           {
             name: 'SkyEdu',
-            detailCount: 7,
-            errorCount: 2,
-            notInstall: 0,
+            statusInfo: [
+              {
+                count: 7,
+                name: '正常',
+              },
+              {
+                count: 0,
+                name: '异常',
+              },
+              {
+                count: 2,
+                name: '未安装',
+              },
+            ],
           },
         ],
         hardwareCard: [
@@ -77,24 +121,32 @@ export default {
             allSource: '100',
             usedSource: '68',
             unit: '核',
+            color: '#1975F0',
+            fontColor: '#1975F0',
           },
           {
             name: 'Gpu概况',
             allSource: '100',
             usedSource: '100',
             unit: '核',
+            color: '#03BF87',
+            fontColor: '#08C58F',
           },
           {
             name: '内存',
             allSource: '100',
             usedSource: '68',
             unit: '核',
+            color: '#FB992D',
+            fontColor: '#FA9C2E',
           },
           {
             name: 'DISK概况',
             allSource: '100',
             usedSource: '61',
             unit: '核',
+            color: '#8E70F9',
+            fontColor: '#08C58F',
           },
         ],
         personCard: [

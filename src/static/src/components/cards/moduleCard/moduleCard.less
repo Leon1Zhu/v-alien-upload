@@ -1,5 +1,116 @@
 @import '../../../styles/globalscss';
 
 .module-card {
+  position: relative;
+  border: 1px solid rgba(253,253,253,1);
+  .module-card-title-content {
+    height: 42px;
+    padding: 0 15px;
+    font-size: @font-size16;
+    line-height: 42px;
+    background: #EDF5FF;
+    color: #404450;
+    span {
+      font-weight: bold;
+    }
+  }
+  .module-card-content {
+    display: flex;
+    .module-card-count-detail {
+      background: #FFF;
+      padding: 15px;
+      flex: 1;
+      text-align: center;
+      .module-card-count {
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: #E7FEF7;
+        color: #51D1A8;
+        font-size: 33px;
+        text-align: center;
+        line-height: 53px;
+        font-family: Arial-Black;
+      }
+    }
+    .module-card-count-detail:first-child {
+      .module-card-count {
+        background: #E7FEF7;
+        color: #51D1A8;
+      }
+    }
 
+    .module-card-count-detail:nth-child(2) {
+      .module-card-count {
+        background: #FFE2E3;
+        color: #FE5653;
+      }
+    }
+
+    .module-card-count-detail:nth-child(3) {
+      .module-card-count {
+        background: #EEEFFF;
+        color: #6F70EF;
+      }
+    }
+
+    .module-card-status {
+      font-size: @font-size14;
+      margin-top: 15px;
+    }
+  }
+
+
+  @media screen and (min-width: 1080px) and (max-width: 1367px) {
+    .module-card-content {
+      .module-card-count-detail {
+        .module-card-count {
+          width: 60px;
+          height: 60px;
+          font-size: 36px;
+          line-height: 55px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1367px) and (max-width: 1921px) {
+    .module-card-content {
+      .module-card-count-detail {
+        .module-card-count {
+          width: 75px;
+          height: 75px;
+          font-size: 42px;
+          line-height: 68px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1921px) and (max-width: 2561px) {
+    .module-card-content {
+      .module-card-count-detail {
+        .module-card-count {
+          width: 90px;
+          height: 90px;
+          font-size: 50px;
+          line-height: 80px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 2561px) {
+    .module-card-content {
+      .module-card-count-detail {
+        .module-card-count {
+          width: 105px;
+          height: 105px;
+          font-size: 58px;
+          line-height: 92px;
+        }
+      }
+    }
+  }
 }

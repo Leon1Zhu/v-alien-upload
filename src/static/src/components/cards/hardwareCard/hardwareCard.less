@@ -1,5 +1,55 @@
 @import '../../../styles/globalscss';
 
 .hardware-card {
-
+  background: #FFF;
+  position: relative;
+  .hardware-card-title-content {
+    border-bottom: 1px solid #D3D3D3;
+    height: 44px;
+    line-height: 44px;
+    .hardware-card-title-span {
+      display: inline-block;
+      padding: 0 15px;
+      font-size: @font-size16;
+      font-weight: 900;
+    }
+  }
+  .hardware-card-body {
+    display: flex;
+    padding: 10px 15px;
+    .hardware-card-all-source, .hardware-card-used-source {
+      background: #F2F2F2;
+      border-radius: 2px;
+      padding: 5px 10px;
+      display: flex;
+    }
+    .hardware-card-left-content {
+      text-align: center;
+      flex: 1.5;
+    }
+    .hardware-card-right-content {
+      flex: 2;
+      .hardware-card-source-number {
+        font-size: 24px;
+        font-family: Arial-Black;
+      }
+      .hardware-card-source-unit, .hardware-card-all-source-content-name {
+        font-size: @font-size14;
+        color: #898989;
+      }
+      .hardware-card-all-source-content-name {
+        flex: 1;
+        text-align: right;
+        line-height: 300%;
+      }
+      .hardware-card-used-source {
+        margin-top: 10px;
+      }
+    }
+    .hardware-card-used-rate {
+      font-size:10px;
+      color:rgba(133,133,133,1);
+      margin-top: 4px;
+    }
+  }
 }
