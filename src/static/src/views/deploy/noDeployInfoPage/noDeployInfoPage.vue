@@ -50,7 +50,7 @@ export default {
   methods: {
     clickMethod(index) {
       console.log(index);
-    }
+    },
   },
 };
 </script>

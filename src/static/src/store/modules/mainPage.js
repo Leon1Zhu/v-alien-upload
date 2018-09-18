@@ -30,7 +30,6 @@ const mutations = {
     const breadCrumb = state.breadCrumb;
     // 删除高级别的目录
     for (let i = 0, len = breadCrumb.length; i < len; i++) {
-      console.log(breadCrumb[i])
       if (breadCrumb[i].meta.level >= level) {
         breadCrumb.splice(i, 1);
         i--;
