@@ -1,5 +1,27 @@
 @import '../../../styles/globalscss';
 
 .person-card {
+  position: relative;
+  background: #FFF;
+  padding: 15px;
+  .ivu-icon-md-person {
+    vertical-align: baseline;
+    color: @systemColor;
+    &:before {
+      font-size: 40px;
 
+    }
+  }
+  .person-card-user-info {
+    display: inline-block;
+    margin-left: 10px;
+    .person-card-group-name {
+      color: #404450;
+      font-size: @font-size16;
+    }
+    .person-card-count-content {
+      color: #9E9E9E;
+      font-size: @font-size14;
+    }
+  }
 }

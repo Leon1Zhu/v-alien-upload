@@ -9,10 +9,10 @@
   </div>
   <div class="hardware-card-body">
     <div class="hardware-card-left-content">
-      <i-circle :percent="circleValue" :size="circleWidth" :stroke-color="data.color">
+      <manage-circle :percent="circleValue" :size="circleWidth" :stroke-color="data.color" :linear-color="data.linearColor">
         <span style="font-size:24px" :style="{color: data.fontColor}">{{circleValue}}%</span>
         <div class="hardware-card-used-rate">使用率</div>
-      </i-circle>
+      </manage-circle>
     </div>
     <div class="hardware-card-right-content">
       <div class="hardware-card-all-source text-overflow">
@@ -36,6 +36,7 @@
 
 <script>
 import './hardwareCard.less';
+import svgCircle from '../../manageSvg';
 
 export default {
   name: 'hardware-card',
@@ -46,7 +47,9 @@ export default {
       circleValue: (this.data.usedSource / this.data.allSource) * 100,
     };
   },
-  components: {},
+  components: {
+    'manage-circle': svgCircle,
+  },
   created() {},
   mounted() {},
   methods: {},

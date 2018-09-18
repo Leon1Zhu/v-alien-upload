@@ -19,7 +19,7 @@
           </div>
         </div>
       </AutoComplete>
-      <Button size="small" type="primary" icon="ios-add" class="deply-index-new-task-btn">新建任务</Button>
+      <Button size="small" type="primary" icon="ios-add" class="deply-index-new-task-btn" @click.native="pushRouter('/newTask', {})">新建任务</Button>
     </div>
     <index-table></index-table>
   </section>

@@ -117,19 +117,21 @@ export default {
         ],
         hardwareCard: [
           {
-            name: 'Cpu概况',
+            name: 'CPU概况',
             allSource: '100',
             usedSource: '68',
             unit: '核',
             color: '#1975F0',
+            linearColor: '#299AED',
             fontColor: '#1975F0',
           },
           {
-            name: 'Gpu概况',
+            name: 'GPU概况',
             allSource: '100',
             usedSource: '100',
             unit: '核',
             color: '#03BF87',
+            linearColor: '#0FCE9C',
             fontColor: '#08C58F',
           },
           {
@@ -138,6 +140,7 @@ export default {
             usedSource: '68',
             unit: '核',
             color: '#FB992D',
+            linearColor: '#F1BB3C',
             fontColor: '#FA9C2E',
           },
           {
@@ -146,7 +149,8 @@ export default {
             usedSource: '61',
             unit: '核',
             color: '#8E70F9',
-            fontColor: '#08C58F',
+            linearColor: '#CFB4E3',
+            fontColor: '#8E70F9',
           },
         ],
         personCard: [

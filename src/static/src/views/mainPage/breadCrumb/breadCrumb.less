@@ -26,5 +26,17 @@
     display: inline-block;
     position: absolute;
     right: @leftSpace;
+    .ivu-btn:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  .ivu-breadcrumb-item-link {
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .ivu-breadcrumb-item-link:hover {
+    color: @systemColor;
   }
 }
