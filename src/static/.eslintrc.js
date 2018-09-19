@@ -54,5 +54,8 @@ module.exports = {
     "no-plusplus": 0,
     'vue/valid-v-for': 0,
     "vue/require-v-for-key": 0,
+    "no-continue": 0,
+    "no-else-return": 0,
+    "guard-for-in": 0,
   }
 }

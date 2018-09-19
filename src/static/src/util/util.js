@@ -94,5 +94,96 @@ const Util = {
     }
     return data || (defaultValue || null);
   },
+  // 判断页面是否有滚动条
+  hasScrollbar() {
+    return document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight);
+  },
+  // 获取滚动的总高度
+  getScrollTop() {
+    let scrollTop = 0;
+    let bodyScrollTop = 0;
+    let documentScrollTop = 0;
+    if (document.body) {
+      bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+      documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+  },
+  // 文档的总高度
+  getScrollHeight() {
+    let scrollHeight = 0;
+    let bodyScrollHeight = 0;
+    let documentScrollHeight = 0;
+    if (document.body) {
+      bodyScrollHeight = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+      documentScrollHeight = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+    return scrollHeight;
+  },
+  // 获取可见页面的总高度
+  getWindowHeight() {
+    let windowHeight = 0;
+    if (document.compatMode === 'CSS1Compat') {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+  },
+  hasClass(el, cls) {
+    if (!el || !cls) return false;
+    cls.trim();
+    if (el.classList) {
+      return el.classList.contains(cls);
+    } else {
+      return (' '+el.className+' ').indexOf(' '+cls+' ') > -1;
+    }
+  },
+  addClass(el, cls) {
+    if (!el) return;
+    let curClass = el.className;
+    const classes = (cls || '').split(' ');
+    for (let i = 0, j = classes.length; i < j; i++) {
+      const clsName = classes[i];
+      if (!clsName) {
+        continue;
+      }
+      if (el.classList) {
+        el.classList.add(clsName);
+      } else if (!this.hasClass(el, clsName)) {
+        curClass += ' '+clsName;
+      }
+    }
+    if (!el.classList) {
+      el.className = curClass;
+    }
+  },
+  removeClass(el, cls) {
+    if (!el || !cls) return;
+    const classes = cls.split(' ');
+    let curClass = ` ${el.className} `;
+
+    for (let i = 0, j = classes.length; i < j; i++) {
+      var clsName = classes[i];
+      if (!clsName) continue;
+
+      if (el.classList) {
+        el.classList.remove(clsName);
+      } else {
+        if (hasClass(el, clsName)) {
+          curClass = curClass.replace(' ' + clsName + ' ', ' ');
+        }
+      }
+    }
+    if (!el.classList) {
+      el.className = trim(curClass);
+    }
+  },
 };
 export default Util;

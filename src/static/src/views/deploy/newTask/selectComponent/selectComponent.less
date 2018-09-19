@@ -1,0 +1,186 @@
+@import '../../../../styles/globalscss';
+
+#select-component {
+  background: #F8F8F8;
+  position:relative;
+  display: flex;
+  flex: 1;
+
+  .flex-temp {
+    flex: 1;
+  }
+  .select-component-left-content {
+    border-right:2px solid rgba(235,235,235,1);
+  }
+
+  .select-component-left-content, .select-component-right-content {
+    height: auto;
+    display: flex;
+    width: 49%;
+    background: #FFF;
+  }
+
+  .select-component-left-header, .select-component-right-header {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    .select-component-li {
+      flex: 1;
+      display: flex;
+      flex-flow: column;
+      .select-component-ul-content {
+        flex: 1;
+      }
+    }
+  }
+
+  .select-component-ul-content {
+    text-align: center;
+    position: relative;
+    li {
+      position: relative;
+      width: 100px;
+      height: 30px;
+      font-size: @font-size14;
+      line-height: 30px;
+      font-family: HelveticaNeue-Bold;
+      border-radius:2px;
+      border: 1px solid;
+      margin: 10px auto 0;
+      cursor: pointer;
+    }
+  }
+
+
+  .select-component-left-header, .select-component-right-header {
+    .select-component-li .select-comonent-li-header {
+      border-bottom: 2px solid #EBEBEB;
+      padding: 8px 0;
+      text-align: center;
+      .select-component-module-name {
+        display: inline-block;
+        color: #404450;
+        font-size: @font-size14;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .select-component-li:not(:last-child) .select-component-ul-content:after {
+      content: ' ';
+      width: 2px;
+      height: 85%;
+      margin-top: 14%;
+      background: #EBEBEB;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .select-component-li:first-child {
+      .select-component-module-name {
+        background: #EAEFF9;
+      }
+      .select-component-delete-all-components {
+        color: #597CE5;
+      }
+      .select-component-ul-content {
+        li {
+          background: rgba(234,239,249,1);
+          border-color: rgba(73,125,220,1);
+          color: #4274D8;
+        }
+      }
+    }
+
+    .select-component-li:nth-child(2) {
+      .select-component-module-name {
+        background: #FCE5E0;
+      }
+      .select-component-delete-all-components {
+        color: #E5483A;
+      }
+      .select-component-ul-content {
+        li {
+          background:rgba(252,229,224,1);
+          border-color: rgba(229,72,58,1);
+          color: #E5483A;
+        }
+      }
+    }
+
+    .select-component-li:nth-child(3) {
+      .select-component-module-name {
+        background: #E8F6E5;
+      }
+      .select-component-delete-all-components {
+        color: #4A8D55;
+      }
+      .select-component-ul-content {
+        li {
+          background: rgba(232,246,229,1);
+          border-color: rgba(74,141,85,1);
+          color: #42894F;
+        }
+      }
+    }
+
+    .select-component-li:last-child {
+      .select-component-module-name {
+        background: #EFEFFE;
+      }
+      .select-component-delete-all-components {
+        color: #5C6AEA;
+      }
+      .select-component-ul-content {
+        li {
+          background: rgba(239,239,254,1);
+          border-color: rgba(92,106,234,1);
+          color: #597CE5;
+        }
+      }
+    }
+
+  }
+
+  .select-component-right-content {
+    border-left:2px solid rgba(235,235,235,1);
+    .select-component-right-header {
+      .select-component-li {
+        .select-component-ul-content {
+          li {
+            width: 110px;
+            cursor: auto;
+          }
+        }
+        .select-comonent-li-header {
+          background: #EDF5FF;
+          .select-component-module-name {
+            background: transparent;
+            display: inline;
+          }
+        }
+      }
+    }
+
+
+    .select-component-delete-all-components {
+      font-size: @font-size14;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .select-cmponent-li-details .select-component-delete-all-components {
+      display: inline-block;
+      position: absolute;
+      right: 3px;
+      line-height: 30px;
+    }
+  }
+
+
+}

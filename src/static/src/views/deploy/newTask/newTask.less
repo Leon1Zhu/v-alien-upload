@@ -1,3 +1,134 @@
-#new-task {
+@import '../../../styles/globalscss';
 
+#new-task {
+  width: 100%;
+  position:relative;
+  display: flex;
+  flex-flow: column;
+  .create-task-step {
+    height: 141px;
+    width: 100%;
+    background: #FFF;
+    position: relative;
+    border-radius:2px 2px 0px 0px;
+    border:2px solid rgba(235,235,235,1);
+    .ivu-steps {
+      padding: 35px 15px;
+      .ivu-steps-item {
+        .ivu-steps-head {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          left: 50%;
+          margin-left: -15px;
+          margin-top: -15px;
+          border-radius: 50%;
+          padding: 0px;
+          .ivu-steps-head-inner {
+            width: 30px;
+            height: 30px;
+            margin-right:0;
+            line-height: 27px;
+            span:not(.ivu-icon) {
+              font-family:Arial-Black;
+              font-weight:900;
+              font-size: 18px;
+            }
+          }
+        }
+
+        .ivu-steps-main {
+          .ivu-steps-content {
+            text-align: center;
+            padding: 15px 0 0;
+            .ivu-icon {
+              display: inline-block;
+              margin-top: 8px;
+              font-size: 25px;
+              color: #B9BBBF;
+            }
+            .steps-name {
+              margin-top: 10px;
+              font-size: @font-size14;
+            }
+          }
+        }
+
+        .ivu-steps-tail {
+          padding: 0;
+          position: relative;
+          top: 0;
+          i {
+            height: 4px;
+            background: #EBF1FA;
+          }
+        }
+      }
+
+      .ivu-steps-item:last-child .ivu-steps-tail {
+        display: inline-block;
+      }
+
+      .ivu-steps-status-finish,.ivu-steps-status-process {
+        .ivu-icon:before, .steps-name {
+          color: #1871E9;
+        }
+      }
+
+      .ivu-steps-status-process {
+        .ivu-steps-tail i {
+          background: @systemColor;
+        }
+        .ivu-steps-head-inner {
+          background: #FFF;
+          span {
+            color: #FB9B1F;
+          }
+        }
+      }
+
+      .ivu-steps-status-finish .ivu-steps-tail > i:after{
+        background: #EBF1FA;
+      }
+    }
+  }
+  .create-task-content {
+    background: #FFF;
+    flex: 1;
+    min-height: 420px;
+    margin-top: 20px;
+    border: 2px solid rgba(235,235,235,1);
+    position: relative;
+    // 方便后续组件覆盖
+    display: flex;
+    flex-flow: column;
+  }
+
+  .create-task-btn-group {
+    display: flex;
+    bottom: 0;
+    transition: all .2s;
+    position: relative;
+    margin-top: 15px;
+    .create-task-right-btn-group {
+      flex: 1;
+      text-align: right;
+    }
+  }
+
+}
+
+#new-task.relativeClass {
+  padding-bottom: 0;
+  .create-task-btn-group {
+    position: relative;
+  }
+}
+
+#new-task.fixedClass {
+  padding-bottom: 45px;
+  .create-task-btn-group {
+    position: fixed;
+    width: 96%;
+  }
 }

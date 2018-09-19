@@ -48,16 +48,14 @@
   background:@borderColor;
 }
 
+.ivu-btn {
+  width: 116px;
+}
 .ivu-btn-primary {
   padding: 3px 15px 3px;
   font-size: @font-size14;
 }
-.ivu-btn-primary:hover {
-}
 
-.ivu-table-wrapper {
-  border: @borderSize solid @borderColor;
-}
 .ivu-table:after, .ivu-table:before {
   width: 0px;
 }
@@ -86,3 +84,16 @@
   color: #FFFFFF;
   background: @systemColor;
 }
+.ivu-checkbox-checked .ivu-checkbox-inner{
+  border-color: #ccc;
+  background-color: #FFF;
+  &:after {
+    border-color: #1871E9;
+    width: 7px;
+    height: 15px;
+    top: -5px;
+    left: 5px;
+  }
+}
+
+

@@ -1,0 +1,59 @@
+@import '../../../../styles/globalscss';
+
+#host-configuration {
+  position: relative;
+  background: #FFF;
+  .host-configuration-top-content {
+    padding: 0 15px;
+    display: flex;
+    border-bottom: 2px solid #EBEBEB;
+    .host-configuration-left-content, .host-configuration-task-name {
+      width: 49%;
+    }
+
+    form {
+      .ivu-form-item {
+        width: 90%;
+        margin: 20px 0 0 0 ;
+      }
+
+      .ivu-form-item:last-child {
+        margin-bottom: 21px;
+      }
+
+      .ivu-form-item-label {
+        font-size: @font-size14;
+        color: #404450;
+      }
+
+      textarea {
+        min-height: 86px;
+      }
+    }
+  }
+  .host-configuration-bottom-content {
+    .ivu-table {
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .ivu-table-wrapper {
+      border: none;
+    }
+    .host-configuration-add-new-host {
+      width: 98%;
+      height:36px;
+      border:1px dashed rgba(151,151,151,0.41);
+      font-size: @font-size14;
+      color: #C6C6C6;
+      text-align: center;
+      line-height: 36px;
+      cursor: pointer;
+      transition: border-color .3s,color .3s;
+      margin: 10px 0;
+    }
+    .host-configuration-add-new-host:hover {
+      border-color: @systemColor;
+      color: @systemColor;
+    }
+  }
+}
