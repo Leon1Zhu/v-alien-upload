@@ -38,6 +38,7 @@
     text-align: center;
     position: relative;
     li {
+      transition: opacity .4s;
       position: relative;
       width: 100px;
       height: 30px;
@@ -58,6 +59,7 @@
       padding: 8px 0;
       text-align: center;
       .select-component-module-name {
+        transition: opacity .3s;
         display: inline-block;
         color: #404450;
         font-size: @font-size14;
@@ -179,6 +181,17 @@
       position: absolute;
       right: 3px;
       line-height: 30px;
+    }
+
+    .select-component-drop-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      border: 1px dashed #999;
+      border-radius: 4px;
+      color: #999;
+      font-size: 40px;
     }
   }
 

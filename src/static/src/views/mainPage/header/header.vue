@@ -7,7 +7,7 @@
     <div class="header-content">
       <div class="logo-name-content">
         <i class="manage-logo"></i>
-        <span class="manage-name">Sky Manager</span>
+        <span class="manage-name">SkyManager</span>
       </div>
       <div class="header-menu">
         <Menu mode="horizontal"  active-name="1">

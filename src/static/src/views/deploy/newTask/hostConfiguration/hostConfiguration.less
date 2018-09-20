@@ -7,14 +7,15 @@
     padding: 0 15px;
     display: flex;
     border-bottom: 2px solid #EBEBEB;
-    .host-configuration-left-content, .host-configuration-task-name {
-      width: 49%;
+    .host-configuration-left-content{
+      width: 100%;
     }
 
     form {
       .ivu-form-item {
-        width: 90%;
-        margin: 20px 0 0 0 ;
+        display: inline-block;
+        width: 32%;
+        margin: 20px 0 0 1% ;
       }
 
       .ivu-form-item:last-child {
@@ -24,10 +25,6 @@
       .ivu-form-item-label {
         font-size: @font-size14;
         color: #404450;
-      }
-
-      textarea {
-        min-height: 86px;
       }
     }
   }
@@ -49,7 +46,7 @@
       line-height: 36px;
       cursor: pointer;
       transition: border-color .3s,color .3s;
-      margin: 10px 0;
+      margin: 10px auto;
     }
     .host-configuration-add-new-host:hover {
       border-color: @systemColor;

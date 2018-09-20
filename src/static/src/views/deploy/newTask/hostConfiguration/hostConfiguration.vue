@@ -15,13 +15,14 @@
         <FormItem label=" 任务名称">
           <Input v-model="topForm.taskName"></Input>
         </FormItem>
+        <FormItem label="任务描述">
+          <Input v-model="topForm.taskDescribe" type="textarea"  />
+        </FormItem>
       </Form>
     </div>
     <div class="host-configuration-task-name">
       <Form  label-position="right" :label-width="70" >
-        <FormItem label="任务描述">
-          <Input v-model="topForm.taskDescribe" type="textarea"  />
-        </FormItem>
+
       </Form>
     </div>
   </div>
@@ -82,6 +83,36 @@ export default {
         },
       ],
       data1: [
+        {
+          name: '测试任务名',
+          age: 'application',
+          address: '192.168.50.220',
+          q1: '',
+        },
+        {
+          name: '测试任务名',
+          age: 'application',
+          address: '192.168.50.220',
+          q1: '',
+        },
+        {
+          name: '测试任务名',
+          age: 'application',
+          address: '192.168.50.220',
+          q1: '',
+        },
+        {
+          name: '测试任务名',
+          age: 'application',
+          address: '192.168.50.220',
+          q1: '',
+        },
+        {
+          name: '测试任务名',
+          age: 'application',
+          address: '192.168.50.220',
+          q1: '',
+        },
         {
           name: '测试任务名',
           age: 'application',
