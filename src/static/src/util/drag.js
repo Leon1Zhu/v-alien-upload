@@ -38,7 +38,7 @@ function bindDrag(dom,dragStart,dragEnd) {
     if (dragStart) {
       dragStart();
     }
-    const dataSet =  e.srcElement.dataset;
+    const dataSet = e.target.dataset || e.srcElement.dataset;
     setData(e, {
       componentName: dataSet.componentname,
       groupName: dataSet.group,
@@ -64,7 +64,7 @@ function bindDrag(dom,dragStart,dragEnd) {
     //};
     dom.style.opacity = 1;
     if (dragEnd) {
-     dragEnd();
+     dragEnd(e.target || e.srcElement);
     };
   }
 }
@@ -81,7 +81,6 @@ function dragover(e) {
 function drop(e, dropCB) {
   e.stopPropagation();
   e.preventDefault();
-  console.log(getData(e))
   if (dropCB) {
     // 调用增加组件方法
     return dropCB(getData(e));

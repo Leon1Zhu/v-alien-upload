@@ -1,0 +1,78 @@
+@import '../../../../styles/globalscss';
+
+#task-configuration {
+  position: relative;
+  display: flex;
+  flex: 1;
+  .task-configuratin-module-content {
+    height: auto;
+    flex: 1;
+    .task-configuratin-module-content-header {
+      border-bottom: 2px solid #EBEBEB;
+      padding: 16px 21px;
+      .task-configuration-module-name {
+        font-size: @font-size14;
+        color: #404450;
+      }
+    }
+
+    .task-configuratin-module-content-component {
+      .task-configuration-component-list {
+        padding: 0 7%;
+        .task-configuration-component-li {
+          display: flex;
+          padding: 8px 5px;
+          border-bottom: 1px solid #EBEBEB;
+          & > div {
+            flex: 1;
+          }
+          .task-configuration-component-name {
+            font-family:Arial-BoldMT;
+          }
+
+          .task-configuration-component-configuration {
+            .ivu-icon.ivu-icon-ios-settings {
+              display: inline-block;
+              padding-left: 35%;
+              font-size: @font-size18;
+              color: rgb(170,170,170,1);
+              cursor: pointer;
+            }
+            .need-config {
+              color: #E5483A;
+              font-size: @font-size18;
+              line-height: 0;
+            }
+          }
+
+          .task-configuration-component-isconfiguration {
+            text-align: center;
+            color: #05C296;
+            font-size: @font-size14;
+          }
+        }
+      }
+    }
+  }
+
+  .task-configuratin-module-content:not(:last-child) {
+    border-right: 2px solid #EBEBEB;
+  }
+
+  .task-configuratin-module-content:first-child .task-configuration-component-name {
+    color: #1871E9;
+  }
+
+  .task-configuratin-module-content:nth-child(2) .task-configuration-component-name {
+    color: #E5483A;
+  }
+
+  .task-configuratin-module-content:nth-child(3) .task-configuration-component-name {
+    color: #42894F;
+  }
+
+  .task-configuratin-module-content:nth-child(4) .task-configuration-component-name {
+    color: #597CE5;
+  }
+
+}

@@ -57,5 +57,7 @@ module.exports = {
     "no-continue": 0,
     "no-else-return": 0,
     "guard-for-in": 0,
+    'indent': 0,
+    'func-names': 0,
   }
 }

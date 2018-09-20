@@ -185,5 +185,9 @@ const Util = {
       el.className = trim(curClass);
     }
   },
+  // 获取动作的DOM
+  getElement($event) {
+    return $event.target || event.srcElement;
+  },
 };
 export default Util;

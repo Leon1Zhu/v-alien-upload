@@ -58,7 +58,7 @@ import Util from '../../../util/util';
 function addRelativClass() {
   const btnGroup = document.querySelector('#new-task');
   if (!Util.hasClass(btnGroup, 'relativeClass')) {
-    Util.removeClass(btnGroup, 'fixedClass')
+    Util.removeClass(btnGroup, 'fixedClass');
     Util.addClass(btnGroup, 'relativeClass');
   }
 }
@@ -66,11 +66,10 @@ function addRelativClass() {
 function addFixedClass() {
   const btnGroup = document.querySelector('#new-task');
   if (!Util.hasClass(btnGroup, 'fixedClass')) {
-    Util.removeClass(btnGroup, 'relativeClass')
+    Util.removeClass(btnGroup, 'relativeClass');
     Util.addClass(btnGroup, 'fixedClass');
   }
 }
-
 
 window.onscroll = function () {
   if (Util.getScrollTop() + Util.getWindowHeight() === Util.getScrollHeight()) {
@@ -78,7 +77,7 @@ window.onscroll = function () {
   } else {
     addFixedClass();
   }
-}
+};
 
 
 export default {
@@ -98,10 +97,10 @@ export default {
   },
   methods: {
     initSteps() {
-      this.linkArr.forEach( (item, index) => {
+      this.linkArr.forEach((item, index) => {
         if (this.$route.path.replace(/\//g, '') === item.replace(/\//g, '')) {
           this.step = index;
-        };
+        }
       });
     },
     initSticky() {

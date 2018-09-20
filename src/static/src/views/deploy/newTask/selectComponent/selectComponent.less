@@ -18,6 +18,7 @@
     display: flex;
     width: 49%;
     background: #FFF;
+    flex-flow: column;
   }
 
   .select-component-left-header, .select-component-right-header {
@@ -38,7 +39,7 @@
     text-align: center;
     position: relative;
     li {
-      transition: opacity .4s;
+      transition: opacity .4s,background .4s,color .4s;
       position: relative;
       width: 100px;
       height: 30px;
@@ -49,6 +50,9 @@
       border: 1px solid;
       margin: 10px auto 0;
       cursor: pointer;
+    }
+    li.selected {
+      color: #FFF!important;
     }
   }
 
@@ -96,6 +100,10 @@
           border-color: rgba(73,125,220,1);
           color: #4274D8;
         }
+
+        li.selected {
+          background: #4274DB;
+        }
       }
     }
 
@@ -111,6 +119,10 @@
           background:rgba(252,229,224,1);
           border-color: rgba(229,72,58,1);
           color: #E5483A;
+        }
+
+        li.selected {
+          background: #E5483A;
         }
       }
     }
@@ -128,6 +140,10 @@
           border-color: rgba(74,141,85,1);
           color: #42894F;
         }
+
+        li.selected {
+          background: #42894F;
+        }
       }
     }
 
@@ -143,6 +159,10 @@
           background: rgba(239,239,254,1);
           border-color: rgba(92,106,234,1);
           color: #597CE5;
+        }
+
+        li.selected {
+          background: #597CE5;
         }
       }
     }
@@ -192,8 +212,21 @@
       border-radius: 4px;
       color: #999;
       font-size: 40px;
+      flex: 1;
     }
   }
 
+  .select-component-bottom-content {
+    height: 30px;
+    border-top: 1px solid #EBEBEB;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 30px;
+    span {
+      cursor: pointer;
+      font-size: 14px;
+      color: #404450;
+    }
+  }
 
 }
