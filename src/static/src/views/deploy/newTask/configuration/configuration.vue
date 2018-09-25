@@ -27,14 +27,17 @@
     </div>
     <component-configuration-drawer
       :showDrawer="showDrawer"
-      :componentName="componentName"
-      @closeModel="closeModel()"></component-configuration-drawer>
+      :title="componentName"
+      @closeModel="closeModel()">
+      <drawer-info></drawer-info>
+    </component-configuration-drawer>
   </div>
 </template>
 
 <script>
 import './configuration.less';
-import drawer from '../../../../components/componentConfigurationDrawer/componentConfigurationDrawer';
+import drawer from '../../../../components/componentConfigurationDrawer/componentDrawer';
+import drawerInfo from './drawerInfo/drawerInfo';
 
 export default {
   name: 'configuration',
@@ -106,6 +109,7 @@ export default {
   },
   components: {
     'component-configuration-drawer': drawer,
+    'drawer-info': drawerInfo,
   },
   created() {},
   mounted() {},

@@ -16,6 +16,8 @@ const selectModule = () => import('@/views/deploy/newTask/selectModule/selectMod
 const selectComponent = () => import('@/views/deploy/newTask/selectComponent/selectComponent.vue');
 // 配置界面
 const configuration = () => import('@/views/deploy/newTask/configuration/configuration.vue');
+// 预览界面
+const preview = () => import('@/views/deploy/newTask/preview/preview.vue');
 
 const deployRouter = [
   { path: '/deployIndex', component: index, name: '平台部署', meta: { level: 0 } },
@@ -43,6 +45,11 @@ const deployRouter = [
         path: 'configuration',
         component: configuration,
         name: '组件配置',
+      },
+      {
+        path: 'preview',
+        component: preview,
+        name: '任务预览',
       },
     ],
     name: '新建任务',

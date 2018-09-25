@@ -11,9 +11,14 @@
     <div class="node-card-right-content">
       <span class="node-card-name">{{data.name}}</span>
       <Divider />
-      <div class="node-card-detail">
-        <span v-for="item in data.details">{{item}}</span>
-      </div>
+      <Tooltip  placement="top">
+        <div slot="content" v-for="item in data.details">
+          <span >{{item}}</span>
+        </div>
+        <div class="node-card-detail">
+            <span v-for="item in data.details">{{item}}</span>
+        </div>
+      </Tooltip>
     </div>
   </div>
 </template>

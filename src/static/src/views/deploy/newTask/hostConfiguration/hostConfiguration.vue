@@ -28,20 +28,30 @@
   </div>
   <div class="host-configuration-bottom-content">
     <Table  class="plantform-table" stripe :columns="columns1" :data="data1"></Table>
-    <div class="host-configuration-add-new-host">
+    <div class="host-configuration-add-new-host" @click="showDrawer = true">
       <Icon type="md-add" />添加主机
     </div>
   </div>
+
+  <component-drawer
+    :showDrawer="showDrawer"
+    title="添加主机"
+    @closeModel="closeModel()">
+    <drawer-content></drawer-content>
+  </component-drawer>
 </div>
 </template>
 
 <script>
 import './hostConfiguration.less';
+import componentDrawer from '../../../../components/componentConfigurationDrawer/componentDrawer';
+import drawerContent from './drawerContent/drawerContent';
 
 export default {
   name: 'hostConfiguration',
   data() {
     return {
+      showDrawer: false,
       topForm: {
         taskType: 'install',
         taskDescribe: null,
@@ -70,92 +80,47 @@ export default {
           title: 'IP地址',
           key: 'address',
         },
-        {
-          title: '测试连接',
-          key: 'q1',
-        },
-        {
-          title: '操作',
-          // render: (h, params) => {
-          //   return h('div', [
-          //   ]);
-        // }
-        },
       ],
       data1: [
         {
           name: '测试任务名',
           age: 'application',
           address: '192.168.50.220',
-          q1: '',
         },
         {
           name: '测试任务名',
           age: 'application',
           address: '192.168.50.220',
-          q1: '',
         },
         {
           name: '测试任务名',
           age: 'application',
           address: '192.168.50.220',
-          q1: '',
         },
         {
           name: '测试任务名',
           age: 'application',
           address: '192.168.50.220',
-          q1: '',
         },
         {
           name: '测试任务名',
           age: 'application',
           address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
-        },
-        {
-          name: '测试任务名',
-          age: 'application',
-          address: '192.168.50.220',
-          q1: '',
         },
       ],
     };
   },
-  components: {},
+  components: {
+    'component-drawer': componentDrawer,
+    'drawer-content': drawerContent,
+  },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    closeModel() {
+      this.showDrawer = false;
+    },
+  },
 };
 </script>
 

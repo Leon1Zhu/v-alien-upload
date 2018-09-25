@@ -27,7 +27,7 @@
         <Step>
           <div class="ivu-steps-content">
             <Icon type="ios-albums-outline" />
-            <div class="steps-name">配置</div>
+            <div class="steps-name">组件配置</div>
           </div>
         </Step>
         <Step>
@@ -44,7 +44,7 @@
     <div class="create-task-btn-group">
       <Button v-if="step > 0" @click="lastTip()">上一步</Button>
       <div class="create-task-right-btn-group">
-        <Button type="primary" @click="nextTip()">下一步</Button>
+        <Button type="primary" @click="nextTip()">{{nextText}}</Button>
         <Button>取消</Button>
       </div>
     </div>
@@ -86,6 +86,7 @@ export default {
     return {
       step: 0,
       linkArr: ['/newTask', '/newTask/selectModule', '/newTask/selectComponent', '/newTask/configuration', '/newTask/preview'],
+      nextText: '下一步',
     };
   },
   components: {},
@@ -113,11 +114,17 @@ export default {
       // TODO 对当前的数据做出判断是否正确并保存
       // 跳转至下一页和下一个步骤
       this.pushRouter(this.linkArr[++this.step], null);
+      if (this.step === 4 && this.nextText === '下一步') {
+        this.nextText = '完成';
+      }
     },
     lastTip() {
       // TODO 对当前的数据做出判断是否正确并保存
       // 跳转至下一页和下一个步骤
       this.pushRouter(this.linkArr[--this.step], null);
+      if (this.nextText === '完成') {
+        this.nextText = '下一步';
+      }
     },
   },
 };

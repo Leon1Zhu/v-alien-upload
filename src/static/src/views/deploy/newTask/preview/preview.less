@@ -1,0 +1,48 @@
+@import '../../../../styles/globalscss';
+.previrw-content {
+  position: relative;
+  padding: 0 15px;
+  .preview-list {
+    .preview-li {
+      padding-bottom: 30px;
+      .preview-li-header {
+        height: 46px;
+        font-size: @font-size16;
+        color: #404450;
+        line-height: 46px;
+        border-bottom: 2px solid #EBEBEB;
+      }
+      .preview-li-content {
+        .preview-task-config-info {
+          width: 49%;
+          display: inline-block;
+          padding-top: 15px;
+          color: #797C84;
+          font-size: @font-size14;
+          .preview-task-config-detail {
+            display: inline-block;
+            margin-left: 15px;
+          }
+        }
+
+        .preview-task-module-info {
+          .preview-task-module-content {
+            display: inline-block;
+            color: #797C84;
+            li {
+              padding-top: 15px;
+              display: inline-block;
+              margin-left: 15px;
+              width: 90px;
+              color:rgba(121,124,132,.52);
+            }
+
+            li.selected{
+              color: #797C84;
+            }
+          }
+        }
+      }
+    }
+  }
+}

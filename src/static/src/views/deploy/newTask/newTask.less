@@ -95,13 +95,15 @@
   .create-task-content {
     background: #FFF;
     flex: 1;
-    min-height: 420px;
+    height: calc(100vh - 350px);
+    min-height:  200px;
     margin-top: 20px;
     border: 2px solid rgba(235,235,235,1);
     position: relative;
     // 方便后续组件覆盖
     display: flex;
     flex-flow: column;
+    overflow: auto;
   }
 
   .create-task-btn-group {

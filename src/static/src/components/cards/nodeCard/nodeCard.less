@@ -9,7 +9,8 @@
   box-shadow:0px 1px 1px 0px rgba(0,0,0,0.04);
   border:1px solid rgba(255,255,255,1);
   .node-card-left-content {
-    flex: .7;
+    width: 25%;
+    text-align: center;
     .node-card-count {
       font-size: 64px;
       color: @systemColor;
@@ -22,7 +23,10 @@
     }
   }
   .node-card-right-content {
-    flex: 2;
+    width: 75%;
+    .ivu-tooltip {
+      width: 100%;
+    }
     .node-card-name {
       font-size: @font-size16;
       color: #404450;
@@ -30,6 +34,12 @@
     .node-card-detail {
       color: #858585;
       font-size: @font-size14;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      span:not(:first-child){
+        margin-left: 15px;
+      }
     }
     .ivu-divider-horizontal {
       margin: 10px 0;
